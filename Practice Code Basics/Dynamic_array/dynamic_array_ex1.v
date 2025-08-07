@@ -1,23 +1,35 @@
 module dynamic_array;
-int dyn_array[];
-initial begin
-  $display("Default Size of dyn_array %0d", dyn_array.size());
-dyn_array = new[4];
-dyn_array = '{0,1,2,3};
-  $display("Size of dyn_array %0d", dyn_array.size());
-foreach (dyn_array[i])
-  $display("dyn_array[%0d] = %0d", i,dyn_array[i]);
-dyn_array = new[7] (dyn_array);
-$display("Size of dyn_array after resizing0d",dyn_array.size());
-foreach (dyn_array[i])
-$display("dyn_array[%0d] = %0d", i, dyn_array[i]);
-dyn_array = new[9];
-  $display("Size of dyn_array after resizing %0d",dyn_array.size());
-foreach (dyn_array[i])
-  $display("dyn_array[%0d] = %0d", i, dyn_array[i]);
-dyn_array.delete
-$display("size ofarray after deleting = %0d",dyn_array.size());
-end
+  int dyn_array[];
+
+  initial begin
+    $display("Default Size of dyn_array = %0d", dyn_array.size());
+
+    // Allocate 4 elements
+    dyn_array = new[4];
+    dyn_array = '{0,1,2,3};
+    $display("Size of dyn_array = %0d", dyn_array.size());
+
+    foreach (dyn_array[i])
+      $display("dyn_array[%0d] = %0d", i, dyn_array[i]);
+
+    // Resize to 7, copying existing values
+    dyn_array = new[7](dyn_array);
+    $display("Size of dyn_array after resizing = %0d", dyn_array.size());
+
+    foreach (dyn_array[i])
+      $display("dyn_array[%0d] = %0d", i, dyn_array[i]);
+
+    // Resize to 9 (new values will be 0 by default)
+    dyn_array = new[9];
+    $display("Size of dyn_array after resizing to 9 = %0d", dyn_array.size());
+
+    foreach (dyn_array[i])
+      $display("dyn_array[%0d] = %0d", i, dyn_array[i]);
+
+    // Delete the dynamic array
+    dyn_array.delete();
+    $display("Size of array after deleting = %0d", dyn_array.size());
+  end
 endmodule
 
 /*result
