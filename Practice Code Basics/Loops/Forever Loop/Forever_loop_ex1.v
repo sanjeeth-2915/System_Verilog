@@ -1,4 +1,4 @@
-module example;
+module for_ever;
 int i;
 
 initial begin
