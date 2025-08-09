@@ -1,4 +1,4 @@
-module example;
+module while_loop;
 int clk;
 
 initial begin
