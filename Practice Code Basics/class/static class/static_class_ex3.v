@@ -1,3 +1,5 @@
+//using static int (variable)
+
 class sample;
 static int s_count;
 static function count_fun();
@@ -16,8 +18,21 @@ initial begin
 end
 endmodule
 
+/*Result 
+
+Value of s_count[0]= 1
+Value of s_count[1]= 2
+Value of s_count[2]= 3
+Value of s_count[3]= 4
+Value of s_count[4]= 5
+Value of s_count[5]= 6
+Value of s_count[6]= 7
+*/
+
+//without using the static int
+
 class sample;
-int s_count;
+int s_count; // without static it cannot be used so complilation error
 static function count_fun();
   s_count++;
   endfunction
@@ -34,3 +49,8 @@ initial begin
     end
 end
 endmodule
+
+/*result 
+error 
+
+
