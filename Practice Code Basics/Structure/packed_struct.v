@@ -2,6 +2,7 @@ module struct_example;
 struct packed {
 int roll_num;
 int mark;
+}
 student_detail;
 initial begin
 student_detail.roll_num = 3;
